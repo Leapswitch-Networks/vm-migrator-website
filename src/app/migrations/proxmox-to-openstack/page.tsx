@@ -11,6 +11,11 @@ export const metadata: Metadata = {
     "Proxmox migration",
     "Proxmox VE cloud migration",
   ],
+  openGraph: {
+    title: "Proxmox to OpenStack / VHI Migration | VM Migrator",
+    description: "Migrate Proxmox VE VMs to OpenStack or VHI. REST API integration, snapshot-based export, ZFS/LVM/local storage support.",
+  },
+  alternates: { canonical: "/migrations/proxmox-to-openstack" },
 };
 
 export default function ProxmoxToOpenStackPage() {

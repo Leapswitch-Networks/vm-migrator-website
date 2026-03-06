@@ -89,18 +89,19 @@ export default function ContactPage() {
     <>
       {/* Hero */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 grid-bg" />
-        <div className="absolute inset-0 radial-glow" />
+        <div className="hero-gradient absolute inset-0" />
+        <div className="dot-pattern absolute inset-0" />
+        <div className="hero-glow absolute inset-0" />
         <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
-            <div className="mb-6 inline-flex items-center rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-primary">
+            <div className="mb-6 inline-flex items-center rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-white/80">
               Contact Us
             </div>
-            <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
+            <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
               Let&apos;s Plan Your{" "}
-              <span className="gradient-text">Migration</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-white">Migration</span>
             </h1>
-            <p className="mt-6 text-lg leading-relaxed text-text-secondary">
+            <p className="mt-6 text-lg leading-relaxed text-white/70">
               Tell us about your environment and we&apos;ll help you plan the right migration strategy.
             </p>
           </div>
@@ -114,7 +115,7 @@ export default function ContactPage() {
             {/* Contact Form */}
             <div className="lg:col-span-2">
               {submitted ? (
-                <div className="glass-card rounded-2xl p-12 text-center">
+                <div className="feature-card p-12 text-center">
                   <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-success/20">
                     <svg className="h-8 w-8 text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
@@ -126,7 +127,7 @@ export default function ContactPage() {
                   </p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="glass-card rounded-2xl p-8">
+                <form onSubmit={handleSubmit} className="feature-card p-8">
                   <h2 className="text-xl font-semibold text-text-primary">Get in Touch</h2>
                   <p className="mt-1 text-sm text-text-muted">All fields marked with * are required.</p>
 
@@ -141,7 +142,7 @@ export default function ContactPage() {
                         id="name"
                         name="name"
                         required
-                        className="mt-1.5 w-full rounded-lg border border-border bg-card px-4 py-2.5 text-sm text-text-primary placeholder-text-muted outline-none transition-colors focus:border-primary"
+                        className="mt-1.5 w-full rounded-xl border border-border bg-surface px-4 py-2.5 text-sm text-text-primary placeholder-text-muted outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20"
                         placeholder="Your name"
                       />
                     </div>
@@ -156,7 +157,7 @@ export default function ContactPage() {
                         id="email"
                         name="email"
                         required
-                        className="mt-1.5 w-full rounded-lg border border-border bg-card px-4 py-2.5 text-sm text-text-primary placeholder-text-muted outline-none transition-colors focus:border-primary"
+                        className="mt-1.5 w-full rounded-xl border border-border bg-surface px-4 py-2.5 text-sm text-text-primary placeholder-text-muted outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20"
                         placeholder="you@company.com"
                       />
                     </div>
@@ -171,7 +172,7 @@ export default function ContactPage() {
                         id="company"
                         name="company"
                         required
-                        className="mt-1.5 w-full rounded-lg border border-border bg-card px-4 py-2.5 text-sm text-text-primary placeholder-text-muted outline-none transition-colors focus:border-primary"
+                        className="mt-1.5 w-full rounded-xl border border-border bg-surface px-4 py-2.5 text-sm text-text-primary placeholder-text-muted outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20"
                         placeholder="Company name"
                       />
                     </div>
@@ -185,7 +186,7 @@ export default function ContactPage() {
                         type="tel"
                         id="phone"
                         name="phone"
-                        className="mt-1.5 w-full rounded-lg border border-border bg-card px-4 py-2.5 text-sm text-text-primary placeholder-text-muted outline-none transition-colors focus:border-primary"
+                        className="mt-1.5 w-full rounded-xl border border-border bg-surface px-4 py-2.5 text-sm text-text-primary placeholder-text-muted outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20"
                         placeholder="+1 (555) 000-0000"
                       />
                     </div>
@@ -198,7 +199,7 @@ export default function ContactPage() {
                       <select
                         id="source"
                         name="source"
-                        className="mt-1.5 w-full rounded-lg border border-border bg-card px-4 py-2.5 text-sm text-text-primary outline-none transition-colors focus:border-primary"
+                        className="mt-1.5 w-full rounded-xl border border-border bg-surface px-4 py-2.5 text-sm text-text-primary outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20"
                       >
                         <option value="">Select source...</option>
                         {migrationTypes.map((t) => (
@@ -215,7 +216,7 @@ export default function ContactPage() {
                       <select
                         id="target"
                         name="target"
-                        className="mt-1.5 w-full rounded-lg border border-border bg-card px-4 py-2.5 text-sm text-text-primary outline-none transition-colors focus:border-primary"
+                        className="mt-1.5 w-full rounded-xl border border-border bg-surface px-4 py-2.5 text-sm text-text-primary outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20"
                       >
                         <option value="">Select target...</option>
                         {targetTypes.map((t) => (
@@ -232,7 +233,7 @@ export default function ContactPage() {
                       <select
                         id="vmcount"
                         name="vmcount"
-                        className="mt-1.5 w-full rounded-lg border border-border bg-card px-4 py-2.5 text-sm text-text-primary outline-none transition-colors focus:border-primary"
+                        className="mt-1.5 w-full rounded-xl border border-border bg-surface px-4 py-2.5 text-sm text-text-primary outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20"
                       >
                         <option value="">Select range...</option>
                         {vmCounts.map((c) => (
@@ -249,7 +250,7 @@ export default function ContactPage() {
                       <select
                         id="timeline"
                         name="timeline"
-                        className="mt-1.5 w-full rounded-lg border border-border bg-card px-4 py-2.5 text-sm text-text-primary outline-none transition-colors focus:border-primary"
+                        className="mt-1.5 w-full rounded-xl border border-border bg-surface px-4 py-2.5 text-sm text-text-primary outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20"
                       >
                         <option value="">Select timeline...</option>
                         {timelines.map((t) => (
@@ -268,14 +269,14 @@ export default function ContactPage() {
                       id="message"
                       name="message"
                       rows={4}
-                      className="mt-1.5 w-full rounded-lg border border-border bg-card px-4 py-2.5 text-sm text-text-primary placeholder-text-muted outline-none transition-colors focus:border-primary"
+                      className="mt-1.5 w-full rounded-xl border border-border bg-surface px-4 py-2.5 text-sm text-text-primary placeholder-text-muted outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-primary/20"
                       placeholder="Describe your current environment, number of VMs, any specific requirements..."
                     />
                   </div>
 
                   <button
                     type="submit"
-                    className="mt-8 w-full rounded-lg bg-gradient-to-r from-primary to-secondary px-8 py-3 text-sm font-medium text-white transition-opacity hover:opacity-90 sm:w-auto"
+                    className="mt-8 w-full rounded-full bg-primary px-8 py-3 text-sm font-semibold text-white transition-all hover:bg-primary-hover hover:shadow-lg hover:shadow-primary/25 sm:w-auto"
                   >
                     Get in Touch
                   </button>
@@ -285,7 +286,7 @@ export default function ContactPage() {
 
             {/* Contact Info Cards */}
             <div className="space-y-6">
-              <div className="glass-card rounded-2xl p-6">
+              <div className="feature-card p-6">
                 <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/20">
                   <Mail className="h-5 w-5 text-primary" />
                 </div>
@@ -296,7 +297,7 @@ export default function ContactPage() {
                 </a>
               </div>
 
-              <div className="glass-card rounded-2xl p-6">
+              <div className="feature-card p-6">
                 <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent/20">
                   <Calendar className="h-5 w-5 text-accent" />
                 </div>
@@ -307,7 +308,7 @@ export default function ContactPage() {
                 </p>
               </div>
 
-              <div className="glass-card rounded-2xl p-6">
+              <div className="feature-card p-6">
                 <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-success/20">
                   <FileText className="h-5 w-5 text-success" />
                 </div>
@@ -323,7 +324,7 @@ export default function ContactPage() {
       </section>
 
       {/* FAQ */}
-      <section className="border-t border-border bg-surface/30 py-20">
+      <section className="section-purple-light py-20">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h2 className="text-2xl font-bold tracking-tight text-text-primary sm:text-3xl">
@@ -336,7 +337,7 @@ export default function ContactPage() {
 
           <div className="mt-12 space-y-4">
             {faqs.map((faq, index) => (
-              <div key={index} className="glass-card overflow-hidden rounded-xl">
+              <div key={index} className="feature-card overflow-hidden">
                 <button
                   onClick={() => setOpenFaq(openFaq === index ? null : index)}
                   className="flex w-full items-center justify-between p-5 text-left"

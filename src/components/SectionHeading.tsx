@@ -9,7 +9,7 @@ export default function SectionHeading({ badge, title, description, center = tru
   return (
     <div className={`max-w-3xl ${center ? "mx-auto text-center" : ""}`}>
       {badge && (
-        <div className={`mb-4 inline-flex items-center rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-primary ${center ? "" : ""}`}>
+        <div className={`mb-4 inline-flex items-center rounded-full bg-primary-light px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary`}>
           {badge}
         </div>
       )}

@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: "How It Works",
   description:
     "Step-by-step guide to migrating VMs with VM Migrator. Connect infrastructure, discover VMs, choose your strategy, run the 8-phase pipeline, and validate.",
+  openGraph: {
+    title: "How It Works | VM Migrator",
+    description: "Five steps from source to target: connect, discover, configure, migrate, and cutover.",
+  },
+  alternates: { canonical: "/how-it-works" },
 };
 
 const steps = [
@@ -196,18 +201,19 @@ export default function HowItWorksPage() {
     <>
       {/* Hero */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 grid-bg" />
-        <div className="absolute inset-0 radial-glow" />
+        <div className="hero-gradient absolute inset-0" />
+        <div className="dot-pattern absolute inset-0" />
+        <div className="hero-glow absolute inset-0" />
         <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
-            <div className="mb-6 inline-flex items-center rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-primary">
+            <div className="mb-6 inline-flex items-center rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-white/80">
               How It Works
             </div>
-            <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
+            <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
               From Source to Target in{" "}
-              <span className="gradient-text">Five Steps</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-white">Five Steps</span>
             </h1>
-            <p className="mt-6 text-lg leading-relaxed text-text-secondary">
+            <p className="mt-6 text-lg leading-relaxed text-white/70">
               A detailed walkthrough of the VM Migrator workflow — from connecting your infrastructure to final cutover and validation.
             </p>
           </div>
@@ -218,12 +224,12 @@ export default function HowItWorksPage() {
       {steps.map((step, index) => (
         <section
           key={step.number}
-          className={`py-20 ${index % 2 === 1 ? "border-t border-b border-border bg-surface/30" : ""}`}
+          className={`py-20 ${index % 2 === 1 ? "section-purple-light" : ""}`}
         >
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             {/* Step header */}
             <div className="flex items-start gap-6">
-              <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-secondary text-2xl font-bold text-white">
+              <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-primary text-2xl font-bold text-white">
                 {step.number}
               </div>
               <div>
@@ -237,7 +243,7 @@ export default function HowItWorksPage() {
             {/* Details */}
             <div className="mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
               {step.details.map((detail) => (
-                <div key={detail.subtitle} className="glass-card rounded-2xl p-6">
+                <div key={detail.subtitle} className="feature-card p-6">
                   <h3 className="text-sm font-semibold uppercase tracking-wider text-primary">
                     {detail.subtitle}
                   </h3>
@@ -274,8 +280,8 @@ export default function HowItWorksPage() {
               { phase: "7", name: "Network" },
               { phase: "8", name: "Validate" },
             ].map((p) => (
-              <div key={p.phase} className="glass-card flex flex-col items-center rounded-xl p-4 text-center">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-secondary text-sm font-bold text-white">
+              <div key={p.phase} className="feature-card flex flex-col items-center p-4 text-center">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-sm font-bold text-white">
                   {p.phase}
                 </div>
                 <span className="mt-2 text-xs font-medium text-text-secondary">{p.name}</span>

@@ -24,6 +24,11 @@ export const metadata: Metadata = {
   title: "Features",
   description:
     "VM Migrator features: 8-phase migration pipeline, continuous replication, volume streaming, multi-disk support, VirtIO injection, real-time dashboard, and more.",
+  openGraph: {
+    title: "Features | VM Migrator",
+    description: "8-phase migration pipeline, continuous replication, volume streaming, multi-disk support, VirtIO injection, and real-time dashboard.",
+  },
+  alternates: { canonical: "/features" },
 };
 
 const featureCategories = [
@@ -247,18 +252,19 @@ export default function FeaturesPage() {
     <>
       {/* Hero */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 grid-bg" />
-        <div className="absolute inset-0 radial-glow" />
+        <div className="hero-gradient absolute inset-0" />
+        <div className="dot-pattern absolute inset-0" />
+        <div className="hero-glow absolute inset-0" />
         <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
-            <div className="mb-6 inline-flex items-center rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-primary">
+            <div className="mb-6 inline-flex items-center rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-white/80">
               Features
             </div>
-            <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
+            <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
               Everything You Need for{" "}
-              <span className="gradient-text">Enterprise VM Migration</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-white">Enterprise VM Migration</span>
             </h1>
-            <p className="mt-6 text-lg leading-relaxed text-text-secondary">
+            <p className="mt-6 text-lg leading-relaxed text-white/70">
               Purpose-built for migrating VMs to OpenStack and VHI. Snapshot-based export, continuous replication, volume streaming, and a full web dashboard.
             </p>
           </div>
@@ -269,7 +275,7 @@ export default function FeaturesPage() {
       {featureCategories.map((category, catIndex) => (
         <section
           key={category.title}
-          className={`py-24 ${catIndex % 2 === 1 ? "border-t border-border bg-surface/30" : ""}`}
+          className={`py-24 ${catIndex % 2 === 1 ? "section-purple-light" : ""}`}
         >
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <SectionHeading
@@ -278,13 +284,13 @@ export default function FeaturesPage() {
             />
             <div className="mt-12 grid gap-6 sm:grid-cols-2">
               {category.features.map((feature) => (
-                <div key={feature.name} className="glass-card rounded-2xl p-6">
+                <div key={feature.name} className="feature-card p-6">
                   <div className="flex items-start gap-4">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-primary/20 to-secondary/20">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary-light">
                       <feature.icon className="h-5 w-5 text-primary" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-text-primary">{feature.name}</h3>
+                      <h3 className="font-bold text-text-primary">{feature.name}</h3>
                       <p className="mt-1.5 text-sm leading-relaxed text-text-muted">{feature.detail}</p>
                     </div>
                   </div>

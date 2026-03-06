@@ -6,6 +6,11 @@ export const metadata: Metadata = {
   title: "About",
   description:
     "VM Migrator is built by Leapswitch Networks — an infrastructure and cloud services company. Purpose-built for migrating VMs to OpenStack and VHI.",
+  openGraph: {
+    title: "About | VM Migrator",
+    description: "Built by Leapswitch Networks. Purpose-built for migrating VMs to OpenStack and VHI.",
+  },
+  alternates: { canonical: "/about" },
 };
 
 const values = [
@@ -63,18 +68,19 @@ export default function AboutPage() {
     <>
       {/* Hero */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 grid-bg" />
-        <div className="absolute inset-0 radial-glow" />
+        <div className="hero-gradient absolute inset-0" />
+        <div className="dot-pattern absolute inset-0" />
+        <div className="hero-glow absolute inset-0" />
         <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
-            <div className="mb-6 inline-flex items-center rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-primary">
+            <div className="mb-6 inline-flex items-center rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-white/80">
               About
             </div>
-            <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
+            <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
               Built by{" "}
-              <span className="gradient-text">Leapswitch Networks</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-white">Leapswitch Networks</span>
             </h1>
-            <p className="mt-6 text-lg leading-relaxed text-text-secondary">
+            <p className="mt-6 text-lg leading-relaxed text-white/70">
               VM Migrator is built by Leapswitch Networks, an infrastructure and cloud services company. We built this tool because we needed it — and because migrating VMs shouldn&apos;t require weeks of manual work.
             </p>
           </div>
@@ -82,7 +88,7 @@ export default function AboutPage() {
       </section>
 
       {/* Story */}
-      <section className="border-t border-border bg-surface/30 py-20">
+      <section className="section-purple-light py-20">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold tracking-tight text-text-primary sm:text-3xl">
             Why We Built VM Migrator
@@ -114,8 +120,8 @@ export default function AboutPage() {
           </div>
           <div className="mt-12 grid gap-8 sm:grid-cols-2">
             {values.map((value) => (
-              <div key={value.title} className="glass-card rounded-2xl p-6">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20">
+              <div key={value.title} className="feature-card p-6">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-light">
                   <value.icon className="h-6 w-6 text-primary" />
                 </div>
                 <h3 className="mt-4 text-lg font-semibold text-text-primary">{value.title}</h3>
@@ -127,7 +133,7 @@ export default function AboutPage() {
       </section>
 
       {/* Deployment */}
-      <section className="border-t border-border bg-surface/30 py-20">
+      <section className="section-purple-light py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="text-2xl font-bold tracking-tight text-text-primary sm:text-3xl">
@@ -139,8 +145,8 @@ export default function AboutPage() {
           </div>
           <div className="mt-12 grid gap-8 sm:grid-cols-2">
             {deploymentFeatures.map((feature) => (
-              <div key={feature.title} className="glass-card rounded-2xl p-6">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20">
+              <div key={feature.title} className="feature-card p-6">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-light">
                   <feature.icon className="h-6 w-6 text-primary" />
                 </div>
                 <h3 className="mt-4 text-lg font-semibold text-text-primary">{feature.title}</h3>
@@ -168,7 +174,7 @@ export default function AboutPage() {
               { service: "Cinder", purpose: "Block storage volumes for multi-disk and replication" },
               { service: "Keystone", purpose: "Authentication and project scoping" },
             ].map((item) => (
-              <div key={item.service} className="glass-card rounded-xl p-4">
+              <div key={item.service} className="feature-card p-4">
                 <span className="text-sm font-semibold text-accent">{item.service}</span>
                 <p className="mt-1 text-sm text-text-muted">{item.purpose}</p>
               </div>

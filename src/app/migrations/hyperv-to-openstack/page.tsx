@@ -12,6 +12,11 @@ export const metadata: Metadata = {
     "VHD to QCOW2",
     "Windows VM migration",
   ],
+  openGraph: {
+    title: "Hyper-V to OpenStack / VHI Migration | VM Migrator",
+    description: "Migrate Hyper-V VMs to OpenStack or VHI. Checkpoint-based export, VHD/VHDX conversion, automatic VirtIO driver injection.",
+  },
+  alternates: { canonical: "/migrations/hyperv-to-openstack" },
 };
 
 export default function HyperVToOpenStackPage() {

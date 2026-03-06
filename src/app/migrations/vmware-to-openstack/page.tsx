@@ -13,6 +13,11 @@ export const metadata: Metadata = {
     "ESXi to OpenStack migration",
     "VMDK to QCOW2",
   ],
+  openGraph: {
+    title: "VMware to OpenStack / VHI Migration | VM Migrator",
+    description: "Migrate VMware ESXi and vCenter VMs to OpenStack or VHI. Quiesced snapshots, VMDK-to-QCOW2 conversion, VirtIO driver injection.",
+  },
+  alternates: { canonical: "/migrations/vmware-to-openstack" },
 };
 
 export default function VMwareToOpenStackPage() {

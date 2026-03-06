@@ -42,29 +42,30 @@ export default function MigrationPathPage({
     <>
       {/* Hero */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 grid-bg" />
-        <div className="absolute inset-0 radial-glow" />
+        <div className="hero-gradient absolute inset-0" />
+        <div className="dot-pattern absolute inset-0" />
+        <div className="hero-glow absolute inset-0" />
         <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
-            <div className="mb-6 inline-flex items-center rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-primary">
+            <div className="mb-6 inline-flex items-center rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-white/80">
               {badge}
             </div>
-            <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
+            <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
               {title}
             </h1>
-            <p className="mt-6 text-lg leading-relaxed text-text-secondary">
+            <p className="mt-6 text-lg leading-relaxed text-white/70">
               {subtitle}
             </p>
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-primary to-secondary px-8 py-3.5 text-sm font-medium text-white transition-opacity hover:opacity-90"
+                className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-3.5 text-sm font-semibold text-primary transition-all hover:shadow-lg hover:shadow-white/20"
               >
                 Book a Demo <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
                 href="/how-it-works"
-                className="inline-flex items-center gap-2 rounded-lg border border-border px-8 py-3.5 text-sm font-medium text-text-secondary transition-colors hover:border-text-muted hover:text-text-primary"
+                className="inline-flex items-center gap-2 rounded-full border border-white/30 px-8 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-white/10"
               >
                 See Full Process
               </Link>
@@ -74,7 +75,7 @@ export default function MigrationPathPage({
       </section>
 
       {/* Why Migrate */}
-      <section className="border-t border-border bg-surface/30 py-20">
+      <section className="py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
             <h2 className="text-2xl font-bold tracking-tight text-text-primary sm:text-3xl">
@@ -94,7 +95,7 @@ export default function MigrationPathPage({
 
       {/* Target Education (optional) */}
       {targetEducation && (
-        <section className="py-20">
+        <section className="section-purple-light py-20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-3xl">
               <h2 className="text-2xl font-bold tracking-tight text-text-primary sm:text-3xl">
@@ -106,7 +107,7 @@ export default function MigrationPathPage({
               <ul className="mt-6 space-y-3">
                 {targetEducation.points.map((point, i) => (
                   <li key={i} className="flex items-start gap-3 text-text-muted">
-                    <div className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                    <div className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
                     <span className="leading-relaxed">{point}</span>
                   </li>
                 ))}
@@ -117,7 +118,7 @@ export default function MigrationPathPage({
       )}
 
       {/* How It Works for This Path */}
-      <section className={`border-t border-border py-20 ${targetEducation ? "bg-surface/30" : ""}`}>
+      <section className={`py-20 ${targetEducation ? "" : "section-purple-light"}`}>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
             <h2 className="text-2xl font-bold tracking-tight text-text-primary sm:text-3xl">
@@ -144,7 +145,7 @@ export default function MigrationPathPage({
             </h2>
             <div className="mt-8 grid gap-3 sm:grid-cols-2">
               {supported.map((item, i) => (
-                <div key={i} className="flex items-start gap-3 rounded-lg border border-border bg-card p-4">
+                <div key={i} className="flex items-start gap-3 rounded-xl border border-border bg-white p-4 shadow-sm">
                   <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
                   <span className="text-sm leading-relaxed text-text-secondary">{item}</span>
                 </div>
@@ -155,7 +156,7 @@ export default function MigrationPathPage({
       </section>
 
       {/* Migration Steps */}
-      <section className="border-t border-border bg-surface/30 py-20">
+      <section className="section-purple-light py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
             <h2 className="text-2xl font-bold tracking-tight text-text-primary sm:text-3xl">
@@ -163,12 +164,12 @@ export default function MigrationPathPage({
             </h2>
             <div className="mt-10 space-y-6">
               {steps.map((step) => (
-                <div key={step.number} className="glass-card flex items-start gap-5 rounded-2xl p-6">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-secondary text-sm font-bold text-white">
+                <div key={step.number} className="feature-card flex items-start gap-5 p-6">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary text-sm font-bold text-white">
                     {step.number}
                   </div>
                   <div>
-                    <h3 className="font-semibold text-text-primary">{step.title}</h3>
+                    <h3 className="font-bold text-text-primary">{step.title}</h3>
                     <p className="mt-1 text-sm leading-relaxed text-text-muted">{step.description}</p>
                   </div>
                 </div>

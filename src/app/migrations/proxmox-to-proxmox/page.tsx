@@ -14,6 +14,11 @@ export const metadata: Metadata = {
     "Proxmox live migration",
     "Proxmox remote migration",
   ],
+  openGraph: {
+    title: "Proxmox to Proxmox Migration | VM Migrator",
+    description: "Migrate between Proxmox clusters with native qm remote-migrate. Online or offline migration with vzdump fallback.",
+  },
+  alternates: { canonical: "/migrations/proxmox-to-proxmox" },
 };
 
 export default function ProxmoxToProxmoxPage() {
@@ -21,30 +26,31 @@ export default function ProxmoxToProxmoxPage() {
     <>
       {/* Hero */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 grid-bg" />
-        <div className="absolute inset-0 radial-glow" />
+        <div className="hero-gradient absolute inset-0" />
+        <div className="dot-pattern absolute inset-0" />
+        <div className="hero-glow absolute inset-0" />
         <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
-            <div className="mb-6 inline-flex items-center rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 text-xs font-medium uppercase tracking-wider text-primary">
+            <div className="mb-6 inline-flex items-center rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-white/80">
               Proxmox to Proxmox
             </div>
-            <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
+            <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
               Migrate Between Proxmox Clusters —{" "}
-              <span className="gradient-text">Online & Native</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-white">Online & Native</span>
             </h1>
-            <p className="mt-6 text-lg leading-relaxed text-text-secondary">
+            <p className="mt-6 text-lg leading-relaxed text-white/70">
               Two migration methods: native qm remote-migrate with live memory transfer for zero downtime, or vzdump backup + qmrestore for maximum compatibility. VM Migrator selects the best method automatically.
             </p>
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-primary to-secondary px-8 py-3.5 text-sm font-medium text-white transition-opacity hover:opacity-90"
+                className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-3.5 text-sm font-semibold text-primary transition-all hover:shadow-lg hover:shadow-white/20"
               >
                 Book a Demo <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
                 href="/how-it-works"
-                className="inline-flex items-center gap-2 rounded-lg border border-border px-8 py-3.5 text-sm font-medium text-text-secondary transition-colors hover:border-text-muted hover:text-text-primary"
+                className="inline-flex items-center gap-2 rounded-full border border-white/30 px-8 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-white/10"
               >
                 See Full Process
               </Link>
@@ -54,7 +60,7 @@ export default function ProxmoxToProxmoxPage() {
       </section>
 
       {/* Why */}
-      <section className="border-t border-border bg-surface/30 py-20">
+      <section className="py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
             <h2 className="text-2xl font-bold tracking-tight text-text-primary sm:text-3xl">
@@ -92,7 +98,7 @@ export default function ProxmoxToProxmoxPage() {
 
           <div className="mx-auto mt-12 grid max-w-4xl gap-8 md:grid-cols-2">
             {/* Method 1: qm remote-migrate */}
-            <div className="glass-card rounded-2xl p-8">
+            <div className="feature-card p-8">
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/20">
                 <Zap className="h-6 w-6 text-primary" />
               </div>
@@ -120,7 +126,7 @@ export default function ProxmoxToProxmoxPage() {
                   </li>
                 ))}
               </ul>
-              <div className="mt-6 rounded-lg border border-border bg-card p-3">
+              <div className="mt-6 rounded-xl bg-surface p-3">
                 <p className="text-xs text-text-muted">
                   <strong className="text-text-secondary">Auto-selected when:</strong> Target has API token + TLS fingerprint configured.
                 </p>
@@ -128,7 +134,7 @@ export default function ProxmoxToProxmoxPage() {
             </div>
 
             {/* Method 2: vzdump + rsync + qmrestore */}
-            <div className="glass-card rounded-2xl p-8">
+            <div className="feature-card p-8">
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent/20">
                 <HardDrive className="h-6 w-6 text-accent" />
               </div>
@@ -156,7 +162,7 @@ export default function ProxmoxToProxmoxPage() {
                   </li>
                 ))}
               </ul>
-              <div className="mt-6 rounded-lg border border-border bg-card p-3">
+              <div className="mt-6 rounded-xl bg-surface p-3">
                 <p className="text-xs text-text-muted">
                   <strong className="text-text-secondary">Auto-selected when:</strong> Target doesn't have API token or TLS fingerprint.
                 </p>
@@ -167,7 +173,7 @@ export default function ProxmoxToProxmoxPage() {
       </section>
 
       {/* Supported */}
-      <section className="border-t border-border bg-surface/30 py-20">
+      <section className="section-purple-light py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
             <h2 className="text-2xl font-bold tracking-tight text-text-primary sm:text-3xl">
@@ -211,8 +217,8 @@ export default function ProxmoxToProxmoxPage() {
                 { number: "4", title: "Execute Migration", description: "VM Migrator selects the best method automatically. For remote-migrate: single atomic command. For vzdump: backup → rsync → restore → bridge remap. Progress tracked in real time." },
                 { number: "5", title: "Verify on Target", description: "VM running on target cluster with correct storage and networking. Verify applications, update any external references, decommission source VM." },
               ].map((step) => (
-                <div key={step.number} className="glass-card flex items-start gap-5 rounded-2xl p-6">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-secondary text-sm font-bold text-white">
+                <div key={step.number} className="feature-card flex items-start gap-5 p-6">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary text-sm font-bold text-white">
                     {step.number}
                   </div>
                   <div>

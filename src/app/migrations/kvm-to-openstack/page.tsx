@@ -12,6 +12,11 @@ export const metadata: Metadata = {
     "KVM cloud migration",
     "virsh migration",
   ],
+  openGraph: {
+    title: "KVM to OpenStack / VHI Migration | VM Migrator",
+    description: "Migrate KVM/libvirt VMs to OpenStack or VHI. SSH + virsh integration, ZFS/LVM snapshots, NBD streaming.",
+  },
+  alternates: { canonical: "/migrations/kvm-to-openstack" },
 };
 
 export default function KVMToOpenStackPage() {

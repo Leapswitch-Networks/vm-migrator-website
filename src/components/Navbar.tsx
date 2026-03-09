@@ -67,6 +67,9 @@ export default function Navbar() {
               )}
             </div>
 
+            <Link href="/compare" className="rounded-full px-4 py-2 text-sm font-medium text-text-secondary transition-colors hover:text-primary hover:bg-primary-light">
+              Compare
+            </Link>
             <Link href="/about" className="rounded-full px-4 py-2 text-sm font-medium text-text-secondary transition-colors hover:text-primary hover:bg-primary-light">
               About
             </Link>
@@ -113,6 +116,9 @@ export default function Navbar() {
                 {path.name}
               </Link>
             ))}
+            <Link href="/compare" className="block rounded-xl px-4 py-3 text-sm font-medium text-text-secondary hover:bg-primary-light hover:text-primary" onClick={() => setMobileOpen(false)}>
+              Compare
+            </Link>
             <Link href="/about" className="block rounded-xl px-4 py-3 text-sm font-medium text-text-secondary hover:bg-primary-light hover:text-primary" onClick={() => setMobileOpen(false)}>
               About
             </Link>
